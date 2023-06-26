@@ -12080,8 +12080,17 @@ iframe[data-uk-cover] {
   justify-content: center;
   align-items: center;
 }
+.centered-image2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .centered-image img {
   max-width: 400px;
   max-height: 700px;
+}
+.centered-image2 img {
+  max-width: 1200px;
+  max-height: 1000px;
 }
