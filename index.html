@@ -84,21 +84,15 @@
     <h3 class="uk-margin-xlarge-left uk-light uk-text-left uk-margin-xlarge-right">
         Profesor: Germán Zapata Madrigal. I.E., Msc., PhD.
     </h3>
- 
-    <!-- <a href="#about" class="uk-margin-xlarge-left uk-text-capitalize uk-button uk-button-secondary" uk-scroll>About Me</a> -->
-
 
 </section>
-
-<!-- Home Ends -->
-<br>
 
 
 <hr class="uk-margin-xlarge-top uk-margin-xlarge-left uk-margin-xlarge-right">
 
 <!-- Resumen -->
 <section id="about" class="uk-margin-small-left uk-margin-small-right uk-margin-xlarge-top uk-margin-xlarge-bottom">
-<h3 class="uk-margin-xlarge-left uk-light">Resumen</h3>
+<h3 class="uk-margin-xlarge-left uk-light">I. RESUMEN</h3>
 <!-- Change here to ur paragraph -->
 <p class="uk-margin-xlarge-left uk-margin-xlarge-right">
     La automatización de sistemas de potencia es de vital importancia en el área de investigación debido a la complejidad  y demanda de eficiencia en las redes eléctricas modernas. En este proyecto se resumen estrategias de automatización y control de frecuencia aplicadas sobre la red IEEE 39 nodos, así cómo todos los desafíos asociados a la supervisión del sistema. 
@@ -114,29 +108,97 @@
     En resumen, este proyecto proporciona una visión general de los desafíos actuales en la automatización de sistemas de potencia basados en la interoperabilidad y estrategias de control y supervisión  describiendo  el proceso de implementación para cada tecnología.
 </p>
 
-<!-- <a href="" class="uk-margin-xlarge-left uk-light uk-button-text" uk-icon="instagram"></a> &nbsp;<a href="" class="uk-light uk-button-text" uk-icon="dribbble"></a> &nbsp;<a href="" class="uk-button-text uk-light" uk-icon="github"></a> &nbsp;<a href="" class=" uk-light uk-button-text" uk-icon="linkedin"></a> -->
 
-<!-- About Me Ends -->
-
-
-
+<!-- Introducción -->
+<section id="about" class="uk-margin-small-left uk-margin-small-right uk-margin-xlarge-top uk-margin-xlarge-bottom">
+    <hr class="uk-margin-xlarge-left uk-margin-xlarge-right">
+    <h3 class="uk-margin-xlarge-left uk-light">II. INTRODUCCIÓN.</h3>
+    <!-- Change here to ur paragraph -->
+    <p class="uk-margin-xlarge-left uk-margin-xlarge-right">
+        El Sistema Eléctrico de Potencia  (SEP) es un componente fundamental de la infraestructura eléctrica de una sociedad moderna y su correcto funcionamiento es esencial para el desarrollo y crecimiento económico. La supervisión y control del SEP es crucial para garantizar su correcto funcionamiento, seguridad y confiabilidad.
+        <br><br>
+        La supervisión del SEP implica la monitorización continua del sistema para detectar posibles fallos o anomalías y asegurar que las variables operativas se encuentren en un rango de operación seguro. Esto puede realizarse a través de la utilización de sistemas de telemetría y telecontrol que permiten la recopilación de datos en tiempo real sobre el estado del sistema y el control remoto de los dispositivos que lo conforman.  
+        <br><br>
+        El control del SEP implica la toma de decisiones en tiempo real para garantizar la estabilidad y confiabilidad del sistema. Esto puede lograrse a través de la utilización de sistemas de automatización que permiten la toma de decisiones rápidas y precisas en situaciones críticas.
+        
+    </p>
 
 </section>
 
-<!-- Projects Section -->
+<!-- problema -->
+<section id="about" class="uk-margin-small-left uk-margin-small-right uk-margin-xlarge-top uk-margin-xlarge-bottom">
+    <hr class="uk-margin-xlarge-left uk-margin-xlarge-right">
+    <h3 class="uk-margin-xlarge-left uk-light">III. PLANTEAMIENTO DEL PROBLEMA.</h3>
+    <!-- Change here to ur paragraph -->
+    <p class="uk-margin-xlarge-left uk-margin-xlarge-right">
+        La operación de una máquina síncrona integrada al sistema de potencia es de vital
+importancia y requiere estrategias de control para garantizar la estabilidad de frecuencia y tensión de la potencia generada, el problema radica en asegurar la supervisión por medio de alertas generadas al variar la carga de una máquina síncrona que integra AVR y regulador de velocidad, esto con el fin de garantizar que el sistema opere según el marco regulatorio Colombiano, además, debe garantizase la confiabilidad de operación de la máquina en todo momento.
+
+        <br><br>
+        Cómo uno de los desafíos específicos, se encuentra la necesidad de garantizar el control primario y secundario detectando las señales de alerta y realizando el ajuste de los parámetros de control para que la red se adapte a las condiciones cambiantes, de esta manera se garantiza una rápida y precisa respuesta ante perturbaciones y fallas en la red.
+    </p>
+</section>
+
+
+
+<!-- marco teorico -->
+<section id="about" class="uk-margin-small-left uk-margin-small-right uk-margin-xlarge-top uk-margin-xlarge-bottom">
+    <hr class="uk-margin-xlarge-left uk-margin-xlarge-right">
+    <h3 class="uk-margin-xlarge-left uk-light">IV. MARCO TEÓRICO</h3>
+    <!-- Change here to ur paragraph -->
+    <p class="uk-margin-xlarge-left uk-margin-xlarge-right">
+        La frecuencia en un sistema de potencia es un valor que revela aspectos de la calidad de la entrega de energía, como balance de carga y generación, capacidad de control y coordinación en las instancias del sistema que están garantizando la continuidad en la prestación del servicio.
+
+        <br><br>
+        A lo largo del tiempo en el mundo han existido diferentes frecuencias de operación, pero, el desarrollo de los sistemas eléctricos ha unificado este valor a 50 Hz y 60 Hz, dependiendo de cada país. En Colombia la resolución 025 de 1995 de la CREG establece que: “La frecuencia objetivo del Sistema Interconectado Nacional (SIN) es 60.00 Hz y su rango de operación está entre 59.80 Hz y 60.20 Hz, excepto en estados de emergencia, fallas, déficit energético y períodos de restablecimiento.
+        <br><br>
+        Para mantener este valor estable en 60 Hz, se requiere que el consumo de energía sea igual a la generación de la misma, sin embargo, lograr este balance es difícil, debido al comportamiento impredecible de la demanda , ya que depende de muchos factores como las costumbres y necesidades de los usuarios, en especial en Colombia, que la demanda de energía tiene una alta componente residencial.
+        <br><br>    
+        Por los motivos anteriores, para mantener la frecuencia en el valor nominal, se utilizan estrategias de control que se definen en: Regulación Primaria, Regulación Secundaria y Regulación Terciaria, que dependen del tiempo de respuesta y el tipo de control. También, existe la autorregulación, la cual es un método que no es controlado directamente por el operador de red, ya que es una respuesta natural del sistema en la que un generador es capaz de mantener una velocidad de giro cercana a la velocidad nominal, aún cuando se producen pequeños desbalances entre la generación y la demanda, debido a la inercia rotacional.
+        <br><br>  
+        El tiempo de restauración de la frecuencia después de una perturbación, se puede dividir en corto plazo y largo plazo; en el primero el tiempo está limitado a varios segundos e incluye la autorregulación y regulación primaria, mientras que en el segundo puede tardar varios minutos y se pueden encontrar la regulación secundaria y terciaria. 
+
+
+    </p>
+    <div class="centered-image">
+        <img src="img/perturbacion.png" ></img>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- DESCRIPCIÓN DEL SISTEMA -->
 <hr class="uk-margin-xlarge-left uk-margin-xlarge-right">
 <section id="projects" class="uk-margin-small-left uk-margin-small-right uk-margin-xlarge-top uk-margin-xlarge-bottom">
 <h3 class="uk-margin-xlarge-left uk-light">DESCRIPCIÓN DEL SISTEMA. 
 </h3>
-<p class="uk-margin-xlarge-left">El  sistema eléctrico de potencia bajo estudio es la red IEEE 39 nodos</p>
 
 <div class="uk-margin-xlarge-left uk-margin-xlarge-right">
     <!-- Change all of this to ur projects -->
     <div class="uk-margin uk-card uk-card-secondary uk-card-body ">
         <h4>Diagrama unifilar IEEE 39</h4>
+        <p >El  sistema eléctrico de potencia bajo estudio es la red IEEE 39 nodos</p>
+
         <div class="centered-image">
             <img src="img/39-nodes.png" ></img>
         </div>
+        <h4>FUNCIONALIDADES A AUTOMATIZAR </h4>
+        <p>El proyecto se enfoca en el diseño y la implementación de un sistema que permita controlar, monitorear y proteger la infraestructura eléctrica de una región. En este contexto, el sistema IEEE de 39 nodos es una red de referencia que se utiliza para probar y evaluar algoritmos y estrategias de control.
+            <br><br>  
+            Para cumplir con esto, uno de los objetivos del proyecto es desarrollar un sistema SCADA que permita supervisar y controlar las variables operativas de uno de los generadores del sistema. Esto incluye la potencia activa y la tensión del generador, lo que permitirá tener un panorama completo de la operación del sistema en tiempo real. Así mismo, se debe controlar la apertura y cierre del  interruptor de una de las cargas en el sistema. 
+            <br><br> 
+            Además, el sistema debe ser capaz de realizar regulación primaria y secundaria de frecuencia, lo que implica ajustar la generación de energía y mantener una frecuencia eléctrica estable dentro de los límites permitidos. 
+        </p>
         <!-- <a class="uk-button-text uk-text-decoration-none" href="">
             <span uk-icon="icon: link">
             </span> Website Link </a> -->
