@@ -12085,6 +12085,11 @@ iframe[data-uk-cover] {
   justify-content: center;
   align-items: center;
 }
+.centered-image3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .centered-image img {
   max-width: 400px;
@@ -12092,5 +12097,9 @@ iframe[data-uk-cover] {
 }
 .centered-image2 img {
   max-width: 1200px;
+  max-height: 1000px;
+}
+.centered-image3 img {
+  max-width: 900px;
   max-height: 1000px;
 }
