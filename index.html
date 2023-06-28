@@ -280,16 +280,26 @@
                 class="uk-margin-small-left uk-margin-small-right uk-margin-xlarge-top uk-margin-xlarge-bottom">
                 <h3 class="uk-margin-xlarge-left uk-light">VI. DESCRIPCIÓN DE LA IMPLEMENTACIÓN DEL SISTEMA DE POTENCIA.
                 </h3>
-                <!-- Entorno de simulación con MATLAB -->
+                <!-- Automatización CPN Tools -->
                 <div class="uk-margin-xlarge-left uk-margin-xlarge-right">
                     <div class="uk-margin uk-card uk-card-secondary uk-card-body ">
-                        <h4>Entorno de simulación con MATLAB</h4>
+                        <h4>Automatización CPN Tools</h4>
 
-                        <p>Aquí se debe describir la implementación de la simulación y sus componentes</p>
-                        <p>1. Creación de los tags en KEPServer</p>
-                        <p>2. CrImplementación de los bloques OPC Reader & OPC Write</p>
-                        <p>3. implementación de la red de petri en CPN Tools</p>
-                        <p>4. implementación de la lógica de la red de Petri en Simulink</p>
+                        <p>La automatización del sistema de potencia mediante el software CPN Tools incluye el uso de 4 redes, una red Principal, la red S1, la red S2 y una red ON-OFF.</p>
+                        <p>La red Principal se puede observar en la siguiente imagen, esta representa los posibles estados del sistema y la alteración del estado normal por la activación de la carga 2 (la cual inicialmente está desconectada) o la apertura de la carga 1 (la cual inicialmente está cerrada), debido a la variación de la frecuencia, esto va a ocasionar que el sistema pase a un estado de operación en alerta cuando la frecuencia sea mayor a 60.03 Hz y menor igual a 60.2 Hz o menor a 59.97 Hz y mayor igual a 59.4 Hz, o que pase al estado de emergencia cuando la frecuencia caiga a menos de 59.4 Hz o suba a más de 60.2 Hz. El cambio de estado a Alerta o Emergencia va a sensibilizar la transición Normalizar 1 o Normalizar 2, respectivamente, las cuales sustituyen las redes S1 y S2 y permiten retornar el sistema al estado de operación normal mediante el aumento o disminución de potencia de los generadores 1 y 7, según la necesidad de aumentar o reducir la frecuencia para volver a la banda muerta (59.97 Hz  &lt; Frec &gt; 60.03 Hz).</p>
+
+
+
+                        <p>La red ON-OFF es la única que cuenta transiciones sensibilizadas, las cuales, como se observa en la siguiente imagen, corresponden al cierre de la carga 2 (C2 ON 1) o la apertura de la carga 1 (C1 OFF 1). Esta sigue una secuencia de disparos que permite decidir inicialmente si se conecta o desconecta una carga, luego si la carga desconectada se vuelve a conectar o si la carga conectada se vuelve a desconectar o si se modifica el estado de la otra carga. </p>
+
+                        <p>Dependiendo de las decisiones en la conexión o desconexión de cargas aparecen marcas en los lugares Var Frec 1, Var Frec 2, Var Frec 3 o Var Frec 4, los cuales también se marcan en la red Principal gracias a la fusión de lugares implementada, cuya marca corresponde al cambio en la frecuencia del sistema.</p>
+                        <p>Si se dispara la transición t3, se ve en la imagen que el sistema queda en una frecuencia de 59.95 Hz por lo que va a pasar a un estado de operación en Alerta ya que se sensibiliza t0, al dispararla, es posible normalizar el sistema mediante la red S1. En este caso, es necesario aumentar la frecuencia con el aumento de la potencia de uno o varios generadores, por lo que se dispara la transición Aumento Potencia, que con un único disparo sensibiliza q0 y por lo tanto el sistema vuelve al estado Normal.</p>
+                        <p>
+                            Por otro lado, también se puede dar el cambio a un estado de Emergencia, en este caso se sensibiliza la transición Normalizar 2, que a su vez activa la red S2. Esta red, dependiendo si la frecuencia supera los 60.2 Hz o se cae a menos de 59.4 Hz, requiere la disminución o aumento de la potencia, respectivamente. En la figura 6 se puede ver que un único disparo de la transición Aumento Potencia 1 no es suficiente para normalizar el sistema debido a la caída tan alta de frecuencia, por lo que es necesario dispararla en varias ocasiones para que, primero, el sistema pase a estado de alerta y finalmente se normalice.
+                        </p>
+                        <p>
+                            Cabe resaltar que los valores definidos de aumento y disminución de frecuencia son aleatorios y no corresponden a lo que pasa en la simulación del sistema, pero su signo si es consecuente con lo que pasa realmente, es decir, si se conecta una carga o se disminuye la potencia es negativo (disminuye la frecuencia) y si se desconecta una carga o se aumenta potencia es positivo (aumenta la potencia), debido a que solo se quería entender la lógica aplicable al sistema y los posibles estados y no como tal hacer una evaluación numérica, ya que esto se realiza mediante Simulink.  
+                        </p>
                         <!-- <a class="uk-button-text uk-text-decoration-none" href="">
                             <span uk-icon="icon: link">
                             </span> Website Link </a> -->
@@ -503,6 +513,12 @@
             <!-- VIII Ends -->
 
 
+
+
+
+
+
+
             <!-- IX CONCLUSIONES-->
             <hr class="uk-margin-xlarge-left uk-margin-xlarge-right">
             <section id="projects"
@@ -530,7 +546,7 @@
 
             </section>
             </div>
-            <!-- VIII Ends -->
+            <!-- IX CONCLUSIONES Ends -->
 
 </body>
 
