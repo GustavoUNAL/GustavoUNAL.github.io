@@ -285,7 +285,74 @@
                     <div class="uk-margin uk-card uk-card-secondary uk-card-body ">
                         <h4>Descripción del sistema</h4>
 
-                        <p>La automatización del sistema de potencia mediante el software CPN Tools incluye el uso de 4 redes, una red Principal, la red S1, la red S2 y una red ON-OFF.</p>
+                        <p>El sistema de trabajo que utilizaremos es el sistema IEEE de 39 barras, centrado en el control y operación eficiente de generadores eléctricos. A lo largo de las diferentes etapas, nos adentraremos en la descripción de los modelos dinámicos de los generadores, incluyendo la regulación de velocidad y tensión, así como la explicación de parámetros y referencias de potencia y tensión. También exploraremos la configuración de generadores equipados con AGC para estabilizar la frecuencia del sistema y analizaremos elementos adicionales y visores utilizados en la supervisión y análisis del comportamiento del sistema. Además, abordaremos herramientas como PowerGUI y el modelo PSS, así como la conectividad OPC y el diagrama de bloques AGC. Por último, discutiremos los estados del sistema y se mencionarán posibles trabajos futuros relacionados con la mejora del control automático y la optimización del sistema.</p>
+                        <p>
+
+
+                        <h4>Descripción del modelo dinámico del generador.</h4>
+                        <p>El generador se representa mediante un bloque azul que incorpora todas sus partes dinámicas. Este modelo completo incluye la regulación de velocidad y tensión. Estas características son esenciales para el funcionamiento óptimo del generador y se utilizan como entradas en el modelo de gobernación. Asimismo, se emplea una potencia de referencia proveniente de este modelo.</p>
+
+
+                        <h4>Descripción del modelo del generador 8 y parámetros iniciales</h4>
+                        <p>En particular, nos centraremos en el modelo del generador 8. Los parámetros necesarios para su descripción se obtienen de manera directa a través de un código especializado. Este código, diseñado específicamente para cargar los parámetros del sistema, abarca una amplia gama de información, desde parámetros de líneas y generadores hasta detalles relacionados con las potencias y los reguladores automáticos de voltaje (AVR). Además, se incluyen las constantes de tiempo y ganancias asociadas a los componentes dinámicos del generador. Igualmente, se recopilan los valores de tensión en cada barra y otros parámetros relevantes.</p>
+
+
+                        <h4>Explicación del generador, potencia de referencia y tensión de referencia.</h4>
+                        <p>En el caso del generador 8, se hace uso de su potencia nominal expresada como 'pn 8, 1'. Por ejemplo, al consultar este parámetro, encontramos un valor de 1, que equivale a 1000 megavatios o 1 gigavatio. Sin embargo, la potencia de referencia programada para este generador es de 540 megavatios. Además, se establece una tensión de referencia ajustada a uno por unidad, lo cual se refleja en el bloque de parámetros y se expresa numéricamente como 22 kilovoltios. Cabe mencionar que en el sistema también participan otros generadores.</p>
+
+
+                        <h4>Generadores con AGC (Automatic Generation Control).</h4>
+                        <p>En esta etapa, se describe una configuración particular en la que los generadores están equipados con AGC (Automatic Generation Control). Cada generador tiene una potencia de referencia ajustada mediante un bloque front, que recibe la potencia desde el SCADA. Además, se incorpora un bloque AGC que permite ajustar la salida del generador en respuesta a variaciones en la frecuencia del sistema. El AGC ayuda a estabilizar la frecuencia al proporcionar una potencia adicional cuando la frecuencia cae por debajo de un umbral predefinido.</p>
+
+
+                        <h4>Elementos agregados al sistema.</h4>
+                        <p>En esta etapa, se mencionan los elementos adicionales que se han incorporado al sistema. Se destaca la presencia de una carga interna del sistema y se introduce un breaker trifásico utilizado para conectar o desconectar dicha carga. El sistema opera normalmente con el breaker cerrado, pero al abrirlo, se espera que la frecuencia tienda a aumentar, generando así un evento de sobre frecuencia. Asimismo, al cerrar un breaker correspondiente a una carga de prueba adicional, se provoca un evento de baja frecuencia. Estos eventos se utilizan para evaluar y analizar el comportamiento del sistema.</p>
+
+
+                        <h4>Visores o scopes para el comportamiento del sistema.</h4>
+                        <p>En esta etapa, se hace referencia a los visores o scopes utilizados para observar y analizar el comportamiento del sistema. Se destaca un scope específico que permite visualizar los valores de frecuencia de todas las unidades de generación, incluyendo la banda muerta. Para facilitar la representación gráfica, se han agregado dos constantes que indican los límites de la banda muerta. Además, se menciona la visualización de la frecuencia y la separación angular de los generadores en otro visor, proporcionando información adicional sobre el sistema.</p>
+
+
+                        <h4>Explicación del PowerGUI.</h4>
+                        <p>En esta etapa, se menciona el PowerGUI, una herramienta utilizada para establecer la frecuencia del sistema en 60Hz y facilitar la simulación del sistema. Aunque no se proporciona una descripción detallada del PowerGUI, se destaca su importancia como una herramienta que contribuye al proceso de simulación del sistema eléctrico.</p>
+
+
+                        <h4>Explicación del modelo PSS.</h4>
+                        <p>En esta etapa, se hace referencia al modelo PSS (Power System Stabilizer). Se menciona que cada generador tiene su propio modelo PSS, el cual es un control adicional implementado en los AVRs (Automatic Voltage Regulators). El modelo PSS tiene como objetivo motivar sobreoscilaciones y ayudar a mantener la estabilidad del sistema eléctrico. Aunque no se proporciona una descripción detallada del modelo PSS, se resalta su función dentro del sistema y la distribución de este modelo a cada AVR.</p>
+
+
+                        <h4>Conectividad del sistema OPC </h4>
+                        <p>En esta etapa, se aborda la conectividad OPC (OLE for Process Control) en el sistema. Se menciona la presencia de bloques OPC Write utilizados para leer las atenciones de los 10 generadores. Esta funcionalidad podría ser relevante en futuros trabajos, ya que permite acceder a las tensiones y frecuencias de los generadores. Además, se menciona la lectura de la frecuencia y potencia de algunos generadores específicos (1, 7, 9 y 10) mediante OPC Write. También se menciona el uso de comandos booleanos, como LP1 y LP2, para controlar los interruptores correspondientes a cargas específicas. Además, se hace referencia a un comando booleano para habilitar o deshabilitar el AGC (Automatic Generation Control) desde el sistema SCADA.</p>
+
+
+                        <h4>Explicación del diagrama de bloques AGC.</h4>
+                        <p>En la configuración del AGC, se utiliza un diagrama de bloques específico que desempeña un papel crucial en el control automático de generación. Comenzando con la frecuencia del sistema, se selecciona la frecuencia generadora 1 como referencia inicial para el AGC. Esta frecuencia se multiplica por 60 para obtener el valor de referencia en 60 Hz, la unidad estándar en el sistema eléctrico. De esta manera, se establece la frecuencia real deseada. Para garantizar un funcionamiento óptimo del AGC, se utiliza una compuerta lógica que se activa cuando la frecuencia del sistema se encuentra fuera de la banda muerta. La banda muerta se define como un rango de ±0.03 Hz. Si la diferencia de frecuencia es menor o igual a 0.03 Hz o mayor o igual a -0.03 Hz, el AGC no se activa. Sin embargo, en caso contrario, el AGC entra en acción para realizar los ajustes necesarios. Dentro de los bloques de control, se encuentra el "bias", una constante que se multiplica por la frecuencia de entrada. Esta constante, expresada en vatios por hertz, determina la cantidad de potencia necesaria para corregir cualquier desviación de frecuencia. Para llevar a cabo esta corrección, se emplea un controlador proporcional-integral (PI) que ofrece la flexibilidad de ajustar las ganancias de integral y proporcional según las preferencias y los requisitos del sistema. En resumen, la configuración del AGC se basa en un diagrama de bloques especializado que toma la frecuencia del sistema como referencia. Se utiliza una lógica de activación basada en la banda muerta y se implementa un controlador PI para garantizar una respuesta precisa y eficiente. Esta configuración es esencial para mantener la estabilidad y el rendimiento óptimo del sistema de generación eléctrica.</p>
+
+
+                        <h4>Definición y respuesta a los estados del sistema.</h4>
+                        <p>El ajuste de potencia en el sistema eléctrico implica una distribución proporcional entre el generador 1 y el generador 7, cada uno con su correspondiente control AGC (Automatic Generation Control). La potencia requerida se divide equitativamente, asignando un 50% a cada generador. Esta proporción puede ajustarse según las necesidades del sistema para lograr el equilibrio adecuado.</p>
+                        <p>
+                            La señal de potencia atraviesa un interruptor controlado por el SCADA (Supervisory Control and Data Acquisition) antes de llegar a la consigna del generador. Si el SCADA está en el estado 0, el sistema AGC (Automatic Energy System) no opera. Por el contrario, si el SCADA está en el estado 1, el AGC entra en funcionamiento y la señal de potencia continúa hacia el generador correspondiente.
+                        </p>
+                        <p>
+                            Después, se aplica una ganancia al valor de potencia para convertirlo en unidades por unidad (pu), considerando la potencia base establecida previamente. La consigna de potencia en pu se envía al generador 1, lo que resulta en un cambio en la referencia de potencia.
+                        </p>
+                        <p>
+                            El ajuste de potencia se basa en una lógica de control realimentada que tiene en cuenta la frecuencia del sistema. Existe una retroalimentación que ajusta las consignas de potencia en función de la frecuencia realimentada.
+                        </p>
+
+
+
+                        <h4>Estados del sistema y su similitud con el diagrama en OPC.</h4>
+                        <p>
+                            El ajuste de potencia en el sistema eléctrico implica una distribución proporcional entre los generadores 1 y 7, utilizando el control AGC (Automatic Generation Control) correspondiente a cada uno. La potencia se divide equitativamente, asignando un 50% a cada generador, aunque esta proporción puede ajustarse según las necesidades del sistema. Antes de llegar a la consigna de potencia, la señal pasa por un interruptor controlado por el SCADA (Supervisory Control and Data Acquisition). Si el SCADA está en estado 0, el sistema AGC no opera, pero si está en estado 1, el AGC se activa y la señal de potencia continúa hacia el generador respectivo.
+                        </p>
+                        <p>
+                            Posteriormente, se aplica una ganancia para convertir la potencia en unidades por unidad (pu), considerando una potencia base preestablecida. La consigna de potencia en pu se envía al generador 1, lo que resulta en un cambio en la referencia de potencia. El ajuste de potencia se basa en una lógica de control realimentada, que ajusta las consignas en función de la frecuencia del sistema.
+                        </p>
+
+
+
                         <p>
                         <!-- <a class="uk-button-text uk-text-decoration-none" href="">
                             <span uk-icon="icon: link">
@@ -553,15 +620,18 @@
             <hr class="uk-margin-xlarge-left uk-margin-xlarge-right">
             <section id="projects"
                 class="uk-margin-small-left uk-margin-small-right uk-margin-xlarge-top uk-margin-xlarge-bottom">
-                <h3 class="uk-margin-xlarge-left uk-light">VIII. CONCLUSIONES
+                <h3 class="uk-margin-xlarge-left uk-light">VIII. TRABAJOS FUTUOS
                 </h3>
                 <!-- Entorno de simulación con MATLAB -->
                 <div class="uk-margin-xlarge-left uk-margin-xlarge-right">
                     <div class="uk-margin uk-card uk-card-secondary uk-card-body ">
                         <!-- <h4>Entorno de simulación con MATLAB</h4> -->
 
-                        <p>- Conclusion 1</p>
-                        <p>- Conclusion 2</p>
+                        <p>-Investigación y mejora del control automático: Utilizando los bloques de generadores con AGC, se pueden realizar investigaciones para mejorar el control automático y la estabilización de la frecuencia del sistema eléctrico.</p>
+                        <p>- Análisis detallado de las tensiones en cada barra: Los bloques de tensiones presentes en el sistema pueden ser utilizados para investigar y comprender mejor las variaciones de tensión en cada barra, lo que permitiría optimizar y mejorar la operación del sistema.</p>
+                        <p>- Estudio del flujo de potencia y balanceo de cargas: Los bloques de potencias activas y reactivas de las máquinas ofrecen la oportunidad de realizar investigaciones relacionadas con el flujo de potencia y el balanceo de cargas, lo que puede contribuir a una mejor gestión y eficiencia energética del sistema.</p>
+                        <p>- Optimización del sistema SCADA: Se pueden realizar trabajos futuros para mejorar el Sistema de Control Automático (SCA) mediante el estudio y la optimización de los bloques y parámetros existentes en el sistema.</p>
+                        <p>- Análisis de estabilidad de pequeña señal: Para aquellos interesados en la estabilidad del sistema, se pueden realizar investigaciones adicionales sobre la deshabilidad de pequeña señal utilizando los valores disponibles en los bloques de tensión y otros parámetros relacionados..</p>
                         <!-- <a class="uk-button-text uk-text-decoration-none" href="">
                             <span uk-icon="icon: link">
                             </span> Website Link </a> -->
